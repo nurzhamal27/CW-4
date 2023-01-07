@@ -58,7 +58,7 @@ public final class ActiveCat {
             }
             if (name.equals("Ginger")) {
                 System.out.println("Выбрали Ginger");
-            } else if (name != name) {
+            } else  {
                 System.out.println("Некорректный выбор");
             }
         }

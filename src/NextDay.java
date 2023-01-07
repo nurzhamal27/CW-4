@@ -25,8 +25,8 @@ public class NextDay {
         middleLevel = (health+mood+satiety)/3;
     }
 
-    public static final List<Cat> makeCats(int amount) {
-        return Stream.generate(Cat::new)
+    public static final List<NextDay> makeCats(int amount) {
+        return Stream.generate(NextDay::new)
                 .limit(amount)
                 .collect(Collectors.toList());
 

@@ -26,14 +26,32 @@ public class Main {
     ActiveCat activeCat = new ActiveCat();
       activeCat.doAction();
 
+            chooseSort();
 
+
+        System.out.println("Следующий день");
+//        List<NextDay>nextDays=new ArrayList<>();
+        var nextDays = NextDay.makeCats(3);
+        Printer.print3(nextDays);
+
+    }
+
+    public static void chooseSort(){
+
+
+        var cats1 = Cat.makeCats(3);
+        Printer.print(cats1);
+
+        List<AddCat> cats = new ArrayList<>();
+
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Выьерите способ сортировки: " +
                 "\n 1 - по имени" +
-                        "\n2 - по возрасту" +
-                        "\n3 - по здоровью" +
-                        "\n4 - по настроению" +
-                        "\n 5 - по сытости" +
-                        "\n 6 - по среднему");
+                "\n2 - по возрасту" +
+                "\n3 - по здоровью" +
+                "\n4 - по настроению" +
+                "\n 5 - по сытости" +
+                "\n 6 - по среднему");
         System.out.println("Введите цифру");
         String input = scanner.nextLine();
         if(input.equals("1")){
@@ -68,12 +86,6 @@ public class Main {
             cats1.sort(Comparator.comparing(Cat::getMiddleLevel));
             Printer.print2(cats1, cats);
         }
-
-
-        List<NextDay>nextDays=new ArrayList<>();
-        cats.add(addCat);
-        Printer.print3(nextDays);
-
     }
 
 
