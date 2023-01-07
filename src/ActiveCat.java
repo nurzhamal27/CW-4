@@ -67,14 +67,6 @@ public final class ActiveCat {
 
     }
 
-    public  String play() {
-        return "Вы выбрали играть с котом !";
-    }
-
-    public  String treat() {
-        return "Вы выбрали лечить кота!";
-    }
-
     public void nextDayForAllCats() {
         for (Cat cat : cats) {
             cat.nextDay();

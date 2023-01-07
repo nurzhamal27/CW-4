@@ -30,7 +30,6 @@ public class Main {
 
 
         System.out.println("Следующий день");
-//        List<NextDay>nextDays=new ArrayList<>();
         var nextDays = NextDay.makeCats(3);
         Printer.print3(nextDays);
 
