@@ -1,52 +1,84 @@
 
-
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
 public final class ActiveCat {
     private static final Scanner sc = new Scanner(System.in);
-//    private static final List<String> names = List.of("Peach", "Ginger", "Toby", "Seth", "Tibbles", "Tabby", "Poppy", "Millie", "Daisy", "Jasper", "Misty", "Minka");
-    private  String name;
+    private static final Random r = new Random();
+    private static final List<String> names = List.of("Peach", "Jasper", "Poppy", "Ginger");
+    private List<Cat> cats;
+    private String name;
 
-    private final Action action;
 
 
-    public ActiveCat(Action action) {
+    public ActiveCat(String name) {
+        this.name = name;
 
-        this.action = action;
     }
 
-    public  String setName() {
-        name = sc.nextLine();
-      return name;
+    public ActiveCat() {
+
+    }
+
+    public String getName() {
+        return name;
     }
 
     public void doAction() {
-        System.out.printf("Я %s. %s%n", name, action.perform());
+        System.out.println("Выберите действие: " +
+                "\n1 - Кормить кота\n" +
+                "\n2 - Играть с котом\n" +
+                "\n3 - Лечить кота");
+        String input = sc.nextLine();
+        if (input.equals("1")) {
+            System.out.println("Вы выбрали кормить кота !");
+
+        }
+        if (input.equals("2")) {
+            System.out.println("Вы выбрали играть с котом !");
+
+        }
+        if (input.equals("3")) {
+            System.out.println("Вы выбрали лечить кота!");
+
+        }
+
+        System.out.println("Введите имя кота: \"Peach\", \"Jasper\", \"Poppy\", \"Ginger\"");
+            String name = sc.next();
+            if (name.equals("Peach")) {
+                System.out.println("Выбрали Peach");
+            }
+            if (name.equals("Poppy")) {
+                System.out.println("Выбрали Poppy");
+
+            }
+            if (name.equals("Jasper")) {
+                System.out.println("Выбрали Jasper");
+            }
+            if (name.equals("Ginger")) {
+                System.out.println("Выбрали Ginger");
+            } else if (name != name) {
+                System.out.println("Некорректный выбор");
+            }
+        }
+
+    public  void feed(String name) {
+
     }
 
-    public static String jump() {
-        return "Я прыгаю!";
+    public  String play() {
+        return "Вы выбрали играть с котом !";
     }
 
-    public static String sleep() {
-        return "Я сплю!";
+    public  String treat() {
+        return "Вы выбрали лечить кота!";
     }
 
-    public static String eat() {
-        return "Я кушаю!";
-    }
-
-    public static String makeSound() {
-        return "Я мяукаю!";
-    }
-    public static String swim() {
-        return "Я плаваю!";
-    }
-    public static String play() {
-        return "Я играю!";
+    public void nextDayForAllCats() {
+        for (Cat cat : cats) {
+            cat.nextDay();
+        }
     }
 
 }
-

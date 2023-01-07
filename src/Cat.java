@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -9,13 +11,13 @@ final class Cat {
 
     private static final Random r = new Random();
     private static final List<String> names = List.of("Peach",  "Jasper", "Poppy","Ginger" );
-    private final String name;
+    private  String name;
     private final int age;
-    private final int health;
-    private final int mood;
+    private  int health;
+    private  int mood;
 
-    private final int satiety;
-    private final int middleLevel;
+    private int satiety;
+    private  int middleLevel;
 
 
     public Cat() {
@@ -35,8 +37,7 @@ final class Cat {
 
     }
 
-
-    public final String getName() {
+    public   String getName() {
         return name;
     }
 
@@ -47,15 +48,79 @@ final class Cat {
         return health;
     }
 
-    public final int getMood() {
+    public  int getMood() {
         return mood;
     }
-    public final int getSatiety() {
+    public  int getSatiety() {
         return satiety;
     }
-    public final int getMiddleLevel() {
+    public  int getMiddleLevel() {
         return middleLevel;
     }
+
+
+    public void feed() {
+        int step = age <= 5 ? 7 : (age <= 10 ? 5 : 4);
+        satiety += step;
+        if (satiety > 100) {
+            satiety = 100;
+        }
+        mood += step;
+        if (mood > 100) {
+            mood = 100;
+        }
+    }
+
+    public void heal() {
+        int step = age <= 5 ? 7 : (age <= 10 ? 5 : 4);
+        health += step;
+        if (health > 100) {
+            health = 100;
+        }
+        mood -= step;
+        if (mood < 0) {
+            mood = 0;
+        }
+        satiety -= step;
+        if (satiety < 0) {
+            satiety = 0;
+        }
+    }
+
+    public void play() {
+        int step = age <= 5 ? 7 : (age <= 10 ? 5 : 4);
+        mood += step;
+        if (mood > 100) {
+            mood = 100;
+        }
+        health += step;
+        if (health > 100) {
+            health = 100;
+        }
+        satiety -= step;
+        if (satiety < 0) {
+            satiety = 0;
+        }
+    }
+
+
+    public void nextDay() {
+        int satietyLoss = r.nextInt(5)+1;
+        satiety -= satietyLoss;
+        if (satiety < 0) satiety = 0;
+
+        int moodChange = r.nextInt(3)-3;
+        mood += moodChange;
+        if (mood < 0) mood = 0;
+        if (mood > 100) mood = 100;
+
+        int healthChange = r.nextInt(3)-3;
+        health += healthChange;
+        if (health < 0) health = 0;
+        if (health > 100) health = 100;
+    }
+
+
 
 }
 

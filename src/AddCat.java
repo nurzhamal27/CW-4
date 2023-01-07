@@ -13,9 +13,9 @@ class AddCat {
     public AddCat(String name, int age) {
         this.name = name;
         this.age = age;
-        health = r.nextInt(101)+0;
-        mood = r.nextInt(101)+0;
-        satiety = r.nextInt(101)+0;
+        health = r.nextInt(81)+20;
+        mood = r.nextInt(81)+20;
+        satiety = r.nextInt(81)+20;
         middleLevel = (health+mood+satiety)/3;
     }
 

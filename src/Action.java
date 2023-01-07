@@ -1,3 +1,3 @@
-public interface Action{
+public interface Action {
     String perform();
 }
